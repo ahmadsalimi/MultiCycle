@@ -297,6 +297,56 @@ applicable agreement for further details.
 		(line (pt 0 0)(pt 0 0))
 	)
 )
+(symbol
+	(rect 704 -24 920 104)
+	(text "Control" (rect 5 0 45 14)(font "Arial" (font_size 8)))
+	(text "inst8" (rect 8 112 31 124)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "instruction[19..0]" (rect 0 0 94 14)(font "Arial" (font_size 8)))
+		(text "instruction[19..0]" (rect 21 27 115 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clock" (rect 0 0 29 14)(font "Arial" (font_size 8)))
+		(text "clock" (rect 21 43 50 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "IRWrite" (rect 0 0 40 14)(font "Arial" (font_size 8)))
+		(text "IRWrite" (rect 155 27 195 41)(font "Arial" (font_size 8)))
+		(line (pt 216 32)(pt 200 32))
+	)
+	(port
+		(pt 216 48)
+		(output)
+		(text "RegWrite" (rect 0 0 51 14)(font "Arial" (font_size 8)))
+		(text "RegWrite" (rect 144 43 195 57)(font "Arial" (font_size 8)))
+		(line (pt 216 48)(pt 200 48))
+	)
+	(port
+		(pt 216 64)
+		(output)
+		(text "PCWrite" (rect 0 0 44 14)(font "Arial" (font_size 8)))
+		(text "PCWrite" (rect 151 59 195 73)(font "Arial" (font_size 8)))
+		(line (pt 216 64)(pt 200 64))
+	)
+	(port
+		(pt 216 80)
+		(output)
+		(text "ALUOp[2..0]" (rect 0 0 69 14)(font "Arial" (font_size 8)))
+		(text "ALUOp[2..0]" (rect 126 75 195 89)(font "Arial" (font_size 8)))
+		(line (pt 216 80)(pt 200 80)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 200 112))
+	)
+)
 (connector
 	(pt 448 264)
 	(pt 504 264)
@@ -305,5 +355,20 @@ applicable agreement for further details.
 (connector
 	(pt 176 264)
 	(pt 264 264)
+	(bus)
+)
+(connector
+	(pt 648 280)
+	(pt 672 280)
+	(bus)
+)
+(connector
+	(pt 672 280)
+	(pt 672 8)
+	(bus)
+)
+(connector
+	(pt 704 8)
+	(pt 672 8)
 	(bus)
 )
