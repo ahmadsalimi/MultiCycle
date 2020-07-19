@@ -20,7 +20,7 @@ applicable agreement for further details.
 */
 (header "graphic" (version "1.4"))
 (symbol
-	(rect 784 192 1080 352)
+	(rect 848 192 1144 352)
 	(text "RegisterFile_32" (rect 5 0 92 14)(font "Arial" (font_size 8)))
 	(text "RF" (rect 8 144 23 156)(font "Arial" ))
 	(port
@@ -91,7 +91,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 24 176 168 304)
+	(rect 32 184 176 312)
 	(text "PC" (rect 64 0 85 16)(font "Arial" (font_size 10)))
 	(text "PC_Register" (rect 8 112 70 124)(font "Arial" ))
 	(port
@@ -148,7 +148,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 304 232 488 312)
+	(rect 264 232 448 312)
 	(text "Memory" (rect 5 0 45 12)(font "Arial" ))
 	(text "inst" (rect 8 64 25 76)(font "Arial" ))
 	(port
@@ -246,4 +246,64 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 144 112))
 	)
+)
+(symbol
+	(rect 504 216 648 328)
+	(text "IR" (rect 67 0 81 16)(font "Arial" (font_size 10)))
+	(text "inst4" (rect 8 96 31 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "load" (rect 0 0 23 14)(font "Arial" (font_size 8)))
+		(text "load" (rect 20 25 43 39)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "data[19..0]" (rect 0 0 60 14)(font "Arial" (font_size 8)))
+		(text "data[19..0]" (rect 20 41 80 55)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "clock" (rect 0 0 29 14)(font "Arial" (font_size 8)))
+		(text "clock" (rect 26 73 55 87)(font "Arial" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 144 64)
+		(output)
+		(text "q[19..0]" (rect 0 0 42 14)(font "Arial" (font_size 8)))
+		(text "q[19..0]" (rect 89 57 131 71)(font "Arial" (font_size 8)))
+		(line (pt 144 64)(pt 128 64)(line_width 3))
+	)
+	(drawing
+		(text "left shift" (rect 92 17 134 29)(font "Arial" ))
+		(line (pt 16 16)(pt 16 96))
+		(line (pt 16 16)(pt 128 16))
+		(line (pt 16 96)(pt 128 96))
+		(line (pt 128 16)(pt 128 96))
+		(line (pt 0 0)(pt 146 0))
+		(line (pt 146 0)(pt 146 114))
+		(line (pt 0 114)(pt 146 114))
+		(line (pt 0 0)(pt 0 114))
+		(line (pt 16 74)(pt 22 80))
+		(line (pt 22 80)(pt 16 86))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+	)
+)
+(connector
+	(pt 448 264)
+	(pt 504 264)
+	(bus)
+)
+(connector
+	(pt 176 264)
+	(pt 264 264)
+	(bus)
 )
