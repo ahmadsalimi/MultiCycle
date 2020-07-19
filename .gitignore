@@ -1,60 +1,69 @@
+# Working with Altera Quartus II (Q2) and do proper versioning is not that easy
+# but if you follow some rules it can be accomplished. :)
+# This file should be placed into the main directory where the .qpf file is
+# found. Generally Q2 throws all entities and so on in the main directory, but
+# you can place all stuff also in separate folders. This approach is followed
+# here. So when you create a new design create one or more folders where your
+# entities will be located and put a .gitignore in there that overrides the
+# ignores of this file, e.g. one single rule stating "!*" which allows now all
+# type of files. When you add a MegaFunction or another entity to your design,
+# simply add it to one of your private folders and Q2 will be happy and manage
+# everything quite good. When you want to do versioning of your generated
+# SOF/POF files, you can do this by redirecting the generated output to an own
+# folder. To do this go to:
+# "Assignments"
+# -> "Settings
+# -> "Compilation Process Settings"
+# -> "Save project output files in specified directory"
+# Now you can either place a .gitignore in the directory and allow the following
+# list of types:
+# !*.sof
+# !*.pof
+# or you create an own submodule in the folder to keep binary files out of your
+# design.
 
-# Created by https://www.toptal.com/developers/gitignore/api/alteraquartusii
-# Edit at https://www.toptal.com/developers/gitignore?templates=alteraquartusii
+# Need to keep all HDL files
+# *.vhd
+# *.v
 
-### AlteraQuartusII ###
-##list taken from http://www.alterawiki.com/wiki/Version_Control (01.10.2015)
+# ignore Quartus II generated files
+*_generation_script*
+*_inst.vhd
+*.bak
+*.cmp
+*.done
+*.eqn
+*.hex
+*.html
+*.jdi
+*.jpg
+# *.mif
+*.pin
+*.pof
+*.ptf.*
+*.qar
+*.qarlog
+*.qws
+*.rpt
+*.smsg
+*.sof
+*.sopc_builder
+*.summary
+*.tcl
+*.txt # Explicitly add any text files used
+*~
+*example*
+*sopc_*
+# *.sdc # I want those timing files
 
-######### Quartus II source files
-
-# project files:
-### project_name.qpf Quartus II project file
-### project_name.qsf Quartus constraint file (lists the hardware constraints defined for a project, from the used chip and pinout to timing constraints)
-### project_name.qws Quartus Window Settings ? (the configuration of the Quartus gui for the project, may be omitted)
-
-# top level source files:
-### project_name.bdf Block diagram / Schematic file (top level schematic file, there may be many nested files)
-### project_name.vhd VHDL file (top level VHDL file)
-### project_name.v Verilog file (top level Verilog file)
-
-# component source files:
-### component_name.bsf Block Symbol file (component symbol file)
-### component_name.vhd VHDL file (top level VHDL file)
-### component_name.v Verilog file (top level Verilog file)
-
-# SOPC builder project source files (SOPC builder creates many VHDL or Verilog files, that you do not need to store)
-### sopc_project_name.ptf the list and configuration of components selected in the SOPC gui
-### sopc_project_name.bsf Block Symbol file (SOPC component symbol file, especially if you modified it)
-
-# Board Description (if you created your own board, the list is incomplete!)
-### board_name/class.ptf
-
-# software source files:
-### tbd
-
-######## Quartus II binary files
-
-# hardware binary files
-### project_name.sof SRAM Object File
-
-# software binary files
-
-/*
-!/*.gitignore
-##
-!*.qpf
-!*.qsf
-!*.qws
-!*.bdf
-!*.vhd
-!*.v
-!*.ptf
-!*.bsf
-!**/class.ptf
-!*.tbd
-!*.sof
-## tbd
-
-!*.tcl
-
-# End of https://www.toptal.com/developers/gitignore/api/alteraquartusii
+# ignore Quartus II generated folders
+*/db/
+*/incremental_db/
+*/simulation/
+*/timing/
+*/testbench/
+*/*_sim/
+incremental_db/
+db/
+_output_files/
+PLLJ_PLLSPE_INFO.txt
