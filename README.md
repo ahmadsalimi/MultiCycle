@@ -6,8 +6,8 @@ The multicycle microarchitecture is based on Dr.Asadi's *Computer Architecture* 
 
 ## Contributors
 
-1. Ahmad Salimi
-2. Hamila Mailee
-3. Saber Zafarpoor
+1. [Ahmad Salimi](https://github.com/ahmadsalimi)
+2. [Hamila Mailee](https://github.com/hamilamailee)
+3. [Saber Zafarpoor](https://github.com/SaberDoTcodeR)
 
-## [Projects Documentation](projectDescripition.pdf)
+### [Project Documentation](projectDescripition.pdf)
