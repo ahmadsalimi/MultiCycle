@@ -1,11 +1,8 @@
 ﻿using Assembler.Assemblers;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -32,7 +29,7 @@ namespace Assembler
             using var reader = new StreamReader(source);
             using var writer = new StreamWriter(File.Open(target, FileMode.Create));
 
-            await writer.WriteLineAsync("DEPTH = 65536;\nWIDTH = 8;\nADDRESS_RADIX = HEX;\nDATA_RADIX = BIN;\nCONTENT\nBEGIN");
+            await writer.WriteLineAsync("DEPTH = 65536;\nWIDTH = 20;\nADDRESS_RADIX = HEX;\nDATA_RADIX = BIN;\nCONTENT\nBEGIN");
 
             int address = 0;
             string? line;
