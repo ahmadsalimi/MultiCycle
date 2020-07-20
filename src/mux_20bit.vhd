@@ -4,7 +4,7 @@
 -- MODULE: LPM_MUX 
 
 -- ============================================================
--- File Name: mux2_1.vhd
+-- File Name: mux_20bit.vhd
 -- Megafunction Name(s):
 -- 			LPM_MUX
 --
@@ -39,38 +39,72 @@ USE ieee.std_logic_1164.all;
 LIBRARY lpm;
 USE lpm.lpm_components.all;
 
-ENTITY mux2_1 IS
+ENTITY mux_20bit IS
 	PORT
 	(
-		data0x		: IN STD_LOGIC_VECTOR (2 DOWNTO 0);
-		data1x		: IN STD_LOGIC_VECTOR (2 DOWNTO 0);
+		data0x		: IN STD_LOGIC_VECTOR (19 DOWNTO 0);
+		data1x		: IN STD_LOGIC_VECTOR (19 DOWNTO 0);
 		sel		: IN STD_LOGIC ;
-		result		: OUT STD_LOGIC_VECTOR (2 DOWNTO 0)
+		result		: OUT STD_LOGIC_VECTOR (19 DOWNTO 0)
 	);
-END mux2_1;
+END mux_20bit;
 
 
-ARCHITECTURE SYN OF mux2_1 IS
+ARCHITECTURE SYN OF mux_20bit IS
 
 --	type STD_LOGIC_2D is array (NATURAL RANGE <>, NATURAL RANGE <>) of STD_LOGIC;
 
-	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (2 DOWNTO 0);
-	SIGNAL sub_wire1	: STD_LOGIC_VECTOR (2 DOWNTO 0);
-	SIGNAL sub_wire2	: STD_LOGIC_2D (1 DOWNTO 0, 2 DOWNTO 0);
-	SIGNAL sub_wire3	: STD_LOGIC_VECTOR (2 DOWNTO 0);
+	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (19 DOWNTO 0);
+	SIGNAL sub_wire1	: STD_LOGIC_VECTOR (19 DOWNTO 0);
+	SIGNAL sub_wire2	: STD_LOGIC_2D (1 DOWNTO 0, 19 DOWNTO 0);
+	SIGNAL sub_wire3	: STD_LOGIC_VECTOR (19 DOWNTO 0);
 	SIGNAL sub_wire4	: STD_LOGIC ;
 	SIGNAL sub_wire5	: STD_LOGIC_VECTOR (0 DOWNTO 0);
 
 BEGIN
-	sub_wire3    <= data0x(2 DOWNTO 0);
-	result    <= sub_wire0(2 DOWNTO 0);
-	sub_wire1    <= data1x(2 DOWNTO 0);
+	sub_wire3    <= data0x(19 DOWNTO 0);
+	result    <= sub_wire0(19 DOWNTO 0);
+	sub_wire1    <= data1x(19 DOWNTO 0);
 	sub_wire2(1, 0)    <= sub_wire1(0);
 	sub_wire2(1, 1)    <= sub_wire1(1);
 	sub_wire2(1, 2)    <= sub_wire1(2);
+	sub_wire2(1, 3)    <= sub_wire1(3);
+	sub_wire2(1, 4)    <= sub_wire1(4);
+	sub_wire2(1, 5)    <= sub_wire1(5);
+	sub_wire2(1, 6)    <= sub_wire1(6);
+	sub_wire2(1, 7)    <= sub_wire1(7);
+	sub_wire2(1, 8)    <= sub_wire1(8);
+	sub_wire2(1, 9)    <= sub_wire1(9);
+	sub_wire2(1, 10)    <= sub_wire1(10);
+	sub_wire2(1, 11)    <= sub_wire1(11);
+	sub_wire2(1, 12)    <= sub_wire1(12);
+	sub_wire2(1, 13)    <= sub_wire1(13);
+	sub_wire2(1, 14)    <= sub_wire1(14);
+	sub_wire2(1, 15)    <= sub_wire1(15);
+	sub_wire2(1, 16)    <= sub_wire1(16);
+	sub_wire2(1, 17)    <= sub_wire1(17);
+	sub_wire2(1, 18)    <= sub_wire1(18);
+	sub_wire2(1, 19)    <= sub_wire1(19);
 	sub_wire2(0, 0)    <= sub_wire3(0);
 	sub_wire2(0, 1)    <= sub_wire3(1);
 	sub_wire2(0, 2)    <= sub_wire3(2);
+	sub_wire2(0, 3)    <= sub_wire3(3);
+	sub_wire2(0, 4)    <= sub_wire3(4);
+	sub_wire2(0, 5)    <= sub_wire3(5);
+	sub_wire2(0, 6)    <= sub_wire3(6);
+	sub_wire2(0, 7)    <= sub_wire3(7);
+	sub_wire2(0, 8)    <= sub_wire3(8);
+	sub_wire2(0, 9)    <= sub_wire3(9);
+	sub_wire2(0, 10)    <= sub_wire3(10);
+	sub_wire2(0, 11)    <= sub_wire3(11);
+	sub_wire2(0, 12)    <= sub_wire3(12);
+	sub_wire2(0, 13)    <= sub_wire3(13);
+	sub_wire2(0, 14)    <= sub_wire3(14);
+	sub_wire2(0, 15)    <= sub_wire3(15);
+	sub_wire2(0, 16)    <= sub_wire3(16);
+	sub_wire2(0, 17)    <= sub_wire3(17);
+	sub_wire2(0, 18)    <= sub_wire3(18);
+	sub_wire2(0, 19)    <= sub_wire3(19);
 	sub_wire4    <= sel;
 	sub_wire5(0)    <= sub_wire4;
 
@@ -78,7 +112,7 @@ BEGIN
 	GENERIC MAP (
 		lpm_size => 2,
 		lpm_type => "LPM_MUX",
-		lpm_width => 3,
+		lpm_width => 20,
 		lpm_widths => 1
 	)
 	PORT MAP (
@@ -100,19 +134,19 @@ END SYN;
 -- Retrieval info: LIBRARY: lpm lpm.lpm_components.all
 -- Retrieval info: CONSTANT: LPM_SIZE NUMERIC "2"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_MUX"
--- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "3"
+-- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "20"
 -- Retrieval info: CONSTANT: LPM_WIDTHS NUMERIC "1"
--- Retrieval info: USED_PORT: data0x 0 0 3 0 INPUT NODEFVAL "data0x[2..0]"
--- Retrieval info: USED_PORT: data1x 0 0 3 0 INPUT NODEFVAL "data1x[2..0]"
--- Retrieval info: USED_PORT: result 0 0 3 0 OUTPUT NODEFVAL "result[2..0]"
+-- Retrieval info: USED_PORT: data0x 0 0 20 0 INPUT NODEFVAL "data0x[19..0]"
+-- Retrieval info: USED_PORT: data1x 0 0 20 0 INPUT NODEFVAL "data1x[19..0]"
+-- Retrieval info: USED_PORT: result 0 0 20 0 OUTPUT NODEFVAL "result[19..0]"
 -- Retrieval info: USED_PORT: sel 0 0 0 0 INPUT NODEFVAL "sel"
--- Retrieval info: CONNECT: @data 1 0 3 0 data0x 0 0 3 0
--- Retrieval info: CONNECT: @data 1 1 3 0 data1x 0 0 3 0
+-- Retrieval info: CONNECT: @data 1 0 20 0 data0x 0 0 20 0
+-- Retrieval info: CONNECT: @data 1 1 20 0 data1x 0 0 20 0
 -- Retrieval info: CONNECT: @sel 0 0 1 0 sel 0 0 0 0
--- Retrieval info: CONNECT: result 0 0 3 0 @result 0 0 3 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL mux2_1.vhd TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL mux2_1.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL mux2_1.cmp TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL mux2_1.bsf TRUE FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL mux2_1_inst.vhd FALSE
+-- Retrieval info: CONNECT: result 0 0 20 0 @result 0 0 20 0
+-- Retrieval info: GEN_FILE: TYPE_NORMAL mux_20bit.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL mux_20bit.inc FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL mux_20bit.cmp TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL mux_20bit.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL mux_20bit_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

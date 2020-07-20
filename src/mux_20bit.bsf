@@ -21,20 +21,20 @@ applicable agreement for further details.
 (header "symbol" (version "1.2"))
 (symbol
 	(rect 0 0 144 80)
-	(text "mux2_1" (rect 50 0 104 16)(font "Arial" (font_size 10)))
+	(text "mux_20bit" (rect 43 0 113 16)(font "Arial" (font_size 10)))
 	(text "inst" (rect 8 64 25 76)(font "Arial" ))
 	(port
 		(pt 0 40)
 		(input)
-		(text "data1x[2..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
-		(text "data1x[2..0]" (rect 4 26 59 39)(font "Arial" (font_size 8)))
+		(text "data1x[19..0]" (rect 0 0 74 14)(font "Arial" (font_size 8)))
+		(text "data1x[19..0]" (rect 4 26 65 39)(font "Arial" (font_size 8)))
 		(line (pt 0 40)(pt 64 40)(line_width 3))
 	)
 	(port
 		(pt 0 56)
 		(input)
-		(text "data0x[2..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
-		(text "data0x[2..0]" (rect 4 42 59 55)(font "Arial" (font_size 8)))
+		(text "data0x[19..0]" (rect 0 0 74 14)(font "Arial" (font_size 8)))
+		(text "data0x[19..0]" (rect 4 42 65 55)(font "Arial" (font_size 8)))
 		(line (pt 0 56)(pt 64 56)(line_width 3))
 	)
 	(port
@@ -47,8 +47,8 @@ applicable agreement for further details.
 	(port
 		(pt 144 48)
 		(output)
-		(text "result[2..0]" (rect 0 0 60 14)(font "Arial" (font_size 8)))
-		(text "result[2..0]" (rect 90 34 139 47)(font "Arial" (font_size 8)))
+		(text "result[19..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
+		(text "result[19..0]" (rect 84 34 139 47)(font "Arial" (font_size 8)))
 		(line (pt 144 48)(pt 80 48)(line_width 3))
 	)
 	(drawing
