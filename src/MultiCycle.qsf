@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone II"
 set_global_assignment -name DEVICE AUTO
-set_global_assignment -name TOP_LEVEL_ENTITY Datapath
+set_global_assignment -name TOP_LEVEL_ENTITY 32bit
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:37:48  JULY 19, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
@@ -58,13 +58,20 @@ set_global_assignment -name BDF_FILE RF/RegisterFile_16_32bit.bdf
 set_global_assignment -name BDF_FILE RF/RegisterFile_32.bdf
 set_global_assignment -name QIP_FILE one.qip
 set_global_assignment -name QIP_FILE Control/mux_3bit.qip
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name SIMULATION_MODE FUNCTIONAL
 set_global_assignment -name VECTOR_OUTPUT_FORMAT VWF
 set_global_assignment -name QIP_FILE Memory/Memory.qip
 set_global_assignment -name QIP_FILE mux_20bit.qip
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "E:/University/Computer Architecture/Project/MultiCycle/src/Waveform.vwf"
+set_global_assignment -name QIP_FILE lpm_add_sub0.qip
+set_global_assignment -name QIP_FILE lpm_add_sub1.qip
+set_global_assignment -name QIP_FILE lpm_clshift0.qip
+set_global_assignment -name QIP_FILE lpm_compare0.qip
+set_global_assignment -name BDF_FILE ALU/NAND/4bit.bdf
+set_global_assignment -name BDF_FILE ALU/NAND/16bit.bdf
+set_global_assignment -name BDF_FILE ALU/NAND/32bit.bdf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

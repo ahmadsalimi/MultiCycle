@@ -1,0 +1,163 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect 360 232 528 248)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "IN1[31..0]" (rect 5 0 55 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 360 256 528 272)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "IN2[31..0]" (rect 5 0 55 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(output)
+	(rect 880 248 1056 264)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "OUT[31..0]" (rect 90 0 144 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(symbol
+	(rect 632 152 800 248)
+	(text "16bit" (rect 5 0 32 14)(font "Arial" (font_size 8)))
+	(text "inst" (rect 8 80 25 92)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN1[15..0]" (rect 0 0 53 14)(font "Arial" (font_size 8)))
+		(text "IN1[15..0]" (rect 21 27 74 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "IN2[15..0]" (rect 0 0 53 14)(font "Arial" (font_size 8)))
+		(text "IN2[15..0]" (rect 21 43 74 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "OUT[15..0]" (rect 0 0 60 14)(font "Arial" (font_size 8)))
+		(text "OUT[15..0]" (rect 87 27 147 41)(font "Arial" (font_size 8)))
+		(line (pt 168 32)(pt 152 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 152 80))
+	)
+)
+(symbol
+	(rect 632 264 800 360)
+	(text "16bit" (rect 5 0 32 14)(font "Arial" (font_size 8)))
+	(text "inst1" (rect 8 80 31 92)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN1[15..0]" (rect 0 0 53 14)(font "Arial" (font_size 8)))
+		(text "IN1[15..0]" (rect 21 27 74 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "IN2[15..0]" (rect 0 0 53 14)(font "Arial" (font_size 8)))
+		(text "IN2[15..0]" (rect 21 43 74 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "OUT[15..0]" (rect 0 0 60 14)(font "Arial" (font_size 8)))
+		(text "OUT[15..0]" (rect 87 27 147 41)(font "Arial" (font_size 8)))
+		(line (pt 168 32)(pt 152 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 152 80))
+	)
+)
+(connector
+	(text "IN1[15..0]" (rect 581 168 630 180)(font "Arial" ))
+	(pt 632 184)
+	(pt 584 184)
+	(bus)
+)
+(connector
+	(text "IN2[15..0]" (rect 578 208 627 220)(font "Arial" ))
+	(pt 632 200)
+	(pt 584 200)
+	(bus)
+)
+(connector
+	(text "IN1[31..16]" (rect 577 280 632 292)(font "Arial" ))
+	(pt 632 296)
+	(pt 584 296)
+	(bus)
+)
+(connector
+	(text "IN2[31..16]" (rect 581 320 636 332)(font "Arial" ))
+	(pt 632 312)
+	(pt 584 312)
+	(bus)
+)
+(connector
+	(text "OUT[15..0]" (rect 811 168 865 180)(font "Arial" ))
+	(pt 800 184)
+	(pt 824 184)
+	(bus)
+)
+(connector
+	(text "OUT[31..16]" (rect 815 280 875 292)(font "Arial" ))
+	(pt 800 296)
+	(pt 832 296)
+	(bus)
+)
