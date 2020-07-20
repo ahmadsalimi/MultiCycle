@@ -8,7 +8,7 @@ namespace Assembler.Assemblers
 {
     internal class NoOpAssembler : IAssembler
     {
-        private static readonly BitArray Opcode = 4.ToBitArray();
+        private static readonly BitArray Opcode = 12.ToBitArray();
         private static readonly Regex regex = new Regex("^\\s*noop\\s*$", RegexOptions.IgnoreCase);
 
         public IEnumerable<int> Assemble(string line)
