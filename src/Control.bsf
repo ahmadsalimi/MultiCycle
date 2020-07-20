@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 184 144)
+	(rect 16 16 184 176)
 	(text "Control" (rect 5 0 45 14)(font "Arial" (font_size 8)))
-	(text "inst" (rect 8 112 25 124)(font "Arial" ))
+	(text "inst" (rect 8 144 25 156)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -61,18 +61,32 @@ applicable agreement for further details.
 	(port
 		(pt 168 80)
 		(output)
-		(text "ALUSrc" (rect 0 0 44 14)(font "Arial" (font_size 8)))
-		(text "ALUSrc" (rect 103 75 147 89)(font "Arial" (font_size 8)))
+		(text "ALUSrcA" (rect 0 0 54 14)(font "Arial" (font_size 8)))
+		(text "ALUSrcA" (rect 93 75 147 89)(font "Arial" (font_size 8)))
 		(line (pt 168 80)(pt 152 80))
 	)
 	(port
 		(pt 168 96)
 		(output)
+		(text "ALUSrcB" (rect 0 0 53 14)(font "Arial" (font_size 8)))
+		(text "ALUSrcB" (rect 94 91 147 105)(font "Arial" (font_size 8)))
+		(line (pt 168 96)(pt 152 96))
+	)
+	(port
+		(pt 168 112)
+		(output)
 		(text "ALUOp[2..0]" (rect 0 0 69 14)(font "Arial" (font_size 8)))
-		(text "ALUOp[2..0]" (rect 78 91 147 105)(font "Arial" (font_size 8)))
-		(line (pt 168 96)(pt 152 96)(line_width 3))
+		(text "ALUOp[2..0]" (rect 78 107 147 121)(font "Arial" (font_size 8)))
+		(line (pt 168 112)(pt 152 112)(line_width 3))
+	)
+	(port
+		(pt 168 128)
+		(output)
+		(text "Li" (rect 0 0 9 14)(font "Arial" (font_size 8)))
+		(text "Li" (rect 138 123 147 137)(font "Arial" (font_size 8)))
+		(line (pt 168 128)(pt 152 128))
 	)
 	(drawing
-		(rectangle (rect 16 16 152 112))
+		(rectangle (rect 16 16 152 144))
 	)
 )
