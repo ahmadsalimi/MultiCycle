@@ -61,9 +61,16 @@ applicable agreement for further details.
 	(port
 		(pt 168 80)
 		(output)
+		(text "ALUSrc" (rect 0 0 44 14)(font "Arial" (font_size 8)))
+		(text "ALUSrc" (rect 103 75 147 89)(font "Arial" (font_size 8)))
+		(line (pt 168 80)(pt 152 80))
+	)
+	(port
+		(pt 168 96)
+		(output)
 		(text "ALUOp[2..0]" (rect 0 0 69 14)(font "Arial" (font_size 8)))
-		(text "ALUOp[2..0]" (rect 78 75 147 89)(font "Arial" (font_size 8)))
-		(line (pt 168 80)(pt 152 80)(line_width 3))
+		(text "ALUOp[2..0]" (rect 78 91 147 105)(font "Arial" (font_size 8)))
+		(line (pt 168 96)(pt 152 96)(line_width 3))
 	)
 	(drawing
 		(rectangle (rect 16 16 152 112))
