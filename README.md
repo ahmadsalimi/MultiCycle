@@ -70,7 +70,9 @@ This is the Highest Level Abstraction of our design. We have several components 
         - `nand` -> A bit by bit nand gate for 32-bit inputs.
         - `min` -> Returns the smaller input using a compare unit and a multiplexer.
         - `slt` -> Returns 1 if `in1 < in2` and 0 if `in1 >= in2`.
-    
+
+        ![ALU_Cal](images/ALU_Cal.png)
+
     1. Choose the right ouput based on `opcode`:
         - `overflow` -> Is set to 1 only if the instruction is `add` and the overflow happens.
         - `eq` -> Is set to 1 when the two inputs of ALU are equal.
@@ -78,11 +80,8 @@ This is the Highest Level Abstraction of our design. We have several components 
         - `sgn` -> Is set to 1 when the final ouptut is smaller than zero.
         - `output` -> The final 32-bit output will be chosen based on the opcode using a multiplexer.
 
-![ALU_Choose](images/ALU_Choose.png)
+        ![ALU_Choose](images/ALU_Choose.png)
      
-
-![ALU_Cal](images/ALU_Cal.png)
-
 - Instruction Fetch, PC assignment:
     - `IR <- Mem[PC]`
     - `PC <- PC + 1`
