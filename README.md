@@ -224,4 +224,4 @@ This is the Highest Level Abstraction of our design. We have several components 
 
         ![](images/waveform4.jpg)
 
-So, all instructions were executed correctly.
+So, all instructions were executed successfully.
