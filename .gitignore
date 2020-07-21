@@ -68,3 +68,9 @@ db/
 _output_files/
 PLLJ_PLLSPE_INFO.txt
 **/cbx_args.txt
+Assembler-linux-64-framework-dependent
+Assembler-linux-64-self-contained
+Assembler-osx-64-framework-dependent
+Assembler-osx-64-self-contained
+Assembler-win-64-framework-dependent.exe
+Assembler-win-64-self-contained.exe
