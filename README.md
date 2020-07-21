@@ -26,6 +26,10 @@ This is the Highest Level Abstraction of our design. We have several components 
 - **IR**: A 20-bit register that stores currently executing instruction and decodes each part of the instruction (`opcode`, `cin`, `in1`, `in2`, `out`).
 - **Control**: A Finite State Machine that adjusts control signals, such as `IRWrite`, `PCWrite`, `RegWrite` `ALUSrcA`, `ALUSrcB`, `ALUOp`, and `Li` according to `Opcode` and previous state. We have used `1100` opcode for `No-Op` instruction.
 
+    The Control Block:
+
+    ![](images/Control_Block.jpg)
+
     Instruction Execution Stages according to instruction type is as shown below:
 
     |  Cycle |   1   |   2   |  3  |  4 |
