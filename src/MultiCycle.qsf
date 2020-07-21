@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone II"
 set_global_assignment -name DEVICE AUTO
-set_global_assignment -name TOP_LEVEL_ENTITY 32bit
+set_global_assignment -name TOP_LEVEL_ENTITY Datapath
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:37:48  JULY 19, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
@@ -71,6 +71,12 @@ set_global_assignment -name QIP_FILE lpm_compare0.qip
 set_global_assignment -name BDF_FILE ALU/NAND/4bit.bdf
 set_global_assignment -name BDF_FILE ALU/NAND/16bit.bdf
 set_global_assignment -name BDF_FILE ALU/NAND/32bit.bdf
+set_global_assignment -name QIP_FILE ALU/NAND/lpm_mux0.qip
+set_global_assignment -name QIP_FILE lpm_compare1.qip
+set_global_assignment -name QIP_FILE lpm_compare2.qip
+set_global_assignment -name QIP_FILE lpm_constant0.qip
+set_global_assignment -name QIP_FILE lpm_constant1.qip
+set_global_assignment -name QIP_FILE lpm_compare3.qip
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
