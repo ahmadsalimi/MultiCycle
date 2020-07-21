@@ -2,7 +2,11 @@
 
 Custom Multicycle DataPath Design on Quartus II 13.0sp1.
 
-The multicycle microarchitecture is based on Dr.Asadi's *Computer Architecture* slides.
+The multicycle microarchitecture is based on Dr.Asadi's **Computer Architecture** slides.
+
+Sharif University of Technology
+
+Computer Engineering Department
 
 ## Contributors
 
@@ -10,17 +14,19 @@ The multicycle microarchitecture is based on Dr.Asadi's *Computer Architecture* 
 2. [Hamila Mailee](https://github.com/hamilamailee)
 3. [Saber Zafarpoor](https://github.com/SaberDoTcodeR)
 
-## Hierarchical Design
+# Hierarchical Design
 
-### High-Level Abstraction
+## High-Level Abstraction of Datapath
 ![DataPath](images/Datapath.jpg)
 This is the Highest Level Abstraction of our design. We have several components that will be explained.
 
-#### Datapath modules:
+## Datapath Modules
 - **PC**: A 32-bit register that stores current Program Counter.
 - **Memory**: A ROM with 20-bit words for storing instructions.
 - **IR**: A 20-bit register that stores currently executing instruction and decodes each part of instruction (`opcode`, `cin`, `in1`, `in2`, `out`).
-- **Control**: A Finite State Machine that adjusts control signals, such as `IRWrite`, `PCWrite`, `RegWrite` `ALUSrcA`, `ALUSrcB`, `ALUOp`, and `Li` according to `Opcode` and previous state. Instruction Execution Stages according to instruction type is as shown below:
+- **Control**: A Finite State Machine that adjusts control signals, such as `IRWrite`, `PCWrite`, `RegWrite` `ALUSrcA`, `ALUSrcB`, `ALUOp`, and `Li` according to `Opcode` and previous state. We have used `1100` opcode for `No-Op` instruction.
+
+Instruction Execution Stages according to instruction type is as shown below:
 
     |  Cycle |   1   |   2   |  3  |  4 |
     |:------:|:-----:|:-----:|:---:|:--:|
@@ -81,27 +87,99 @@ This is the Highest Level Abstraction of our design. We have several components 
         - `output` -> The final 32-bit output will be chosen based on the opcode using a multiplexer.
 
         ![ALU_Choose](images/ALU_Choose.png)
+
+## Execution Stages
      
 - Instruction Fetch, PC assignment:
     - `IR <- Mem[PC]`
     - `PC <- PC + 1`
 
-![IF-PC](images/IF-PC.jpg)
+    ![IF-PC](images/IF-PC.jpg)
 
 - Instruction Decode, Register File:
     - `A <- GPR[in1]`
     - `B <- GPR[in2]`
 
-![ID-RF](images/ID-RF.jpg)
+    ![ID-RF](images/ID-RF.jpg)
 
 - ALU Execution
+    Two Multiplexers choose inputs of ALU, and the select signals are given by **Control Unit**. The 1<sup>st</sup> input can be `A` register or `PC`, and the 2<sup>nd</sup> input can be `B` register of 1. Then, ALU executes the instruction. **Control unit** specifies type of operation with ALUOp.
 
-ALU executes the instruction. **Control unit** specifies type of operation.
-
-![EXE](images/EXE.jpg)
+    ![EXE](images/EXE.jpg)
 
 - Write Back:
 
-`Li` signal from **Control unit** chooses `AluOut` of zero-extended `shiftamt` value in RF.
+    `Li` signal from **Control unit** chooses `AluOut` or zero-extended `shiftamt` value, and write that in RF.
 
-![WB](images/WB.jpg)
+    ![WB](images/WB.jpg)
+
+## Runnig A Program
+
+1. Write an assembly program with `MIPS` syntax.
+    
+    The program below contains all supported instructions of our processor.
+
+    ```mips
+    li      $0, 10
+    li      $1, 4
+    add     $2, $1, $0, 1   # $2 = $1 + $0 + 1 = 15 (all alu signals = 0)
+    sub     $3, $2, $1		# $3 = $2 - $1 = 10 (all alu signals = 0)
+    slt     $4, $3, $2      # $4 = $3 < $2 = 1 (all alu signals = 0)
+    noop
+    sll     $5, $4, 3       # $5 = $4 << 3 = 8 (all alu signals = 0)
+    srl     $6, $5, 2       # $6 = $5 >> 2 = 2 (all alu signals = 0)
+    nand    $7, $5, $6      # $7 = $5 nand $6 = -1 (sgn = 1)
+    min     $8, $6, $7      # $8 = min($6, $7) = -1 (sgn = 1)
+    sll     $9, $4, 30      # $9 = 1 << 30 = 2 ^ 30 (all alu signals = 0)
+    add     $10, $9, $9     # $10 = $9 + $9 = - 2 ^ 31 (overflow, eq, sgn = 1)
+    sub     $11, $9, $9     # $11 = 0 (eq, zero = 1)
+    ```
+
+2. Convert the assembly to a `.mif` file.
+
+    We have implemented an assembler program that translates given `MIPS` assembly code to a `.mif` format file. The assembler is written by `c#` language. you can download the **portable** executable form of assembler from [here](https://github.com/ahmadsalimi/MultiCycle/releases). after downloading it, you can assemble your `MIPS` code by below command in command-line of your os.
+
+    - Windows **CMD** or **Powershell**:
+    ```bash
+    .\Assembler-win-64.exe source.asm target.mif
+    ```
+
+    - Linux **Terminal**:
+    ```bash
+    ./Assembler-linux-64 source.asm target.mif
+    ```
+
+    - MacOS **Terminal**:
+    ```bash
+    ./Assembler-osx-64 source.asm target.mif
+    ```
+
+    The result file of above assembly code will be:
+
+    ```
+    DEPTH = 65536;
+    WIDTH = 20;
+    ADDRESS_RADIX = HEX;
+    DATA_RADIX = BIN;
+    CONTENT
+    BEGIN
+    0 : 10000000000101000000;
+    1 : 10000000000010000001;
+    2 : 00001000010000000010;
+    3 : 00010000100000100011;
+    4 : 01110000110001000100;
+    5 : 11000000000000000000;
+    6 : 00110001000001100101;
+    7 : 00100001010001000110;
+    8 : 01010001010011000111;
+    9 : 01100001100011101000;
+    A : 00110001001111001001;
+    B : 00000010010100101010;
+    C : 00010010010100101011;
+    END;
+    ```
+
+    Then save result file as `src/Memory/InitialMemory.mif`.
+
+3. Run `src/Waveform.vwf` by **Quartus Cyclone II**. The result will be as shown below:
+
