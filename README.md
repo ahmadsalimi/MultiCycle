@@ -26,7 +26,7 @@ This is the Highest Level Abstraction of our design. We have several components 
 
 The control unit was designed by one-hot method to convert above FSM to the below circuit.
 
-![Control](images/Control.jpg)
+<img src="images/Control.jpg" width="80%" style="display: block;margin-left: auto;margin-right: auto;">
 
 #### Instruction Execution Stages:
 |  Cycle |   1   |   2   |  3  |  4 |
