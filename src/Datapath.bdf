@@ -1388,5 +1388,10 @@ applicable agreement for further details.
 	(pt 880 384)
 	(pt 848 384)
 )
+(connector
+	(text "clock" (rect 264 320 289 332)(font "Arial" ))
+	(pt 296 336)
+	(pt 256 336)
+)
 (junction (pt 1960 400))
 (junction (pt 544 256))
