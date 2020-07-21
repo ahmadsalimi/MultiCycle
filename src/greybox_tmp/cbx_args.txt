@@ -1,9 +1,0 @@
-LPM_SIZE=2
-LPM_TYPE=LPM_MUX
-LPM_WIDTH=20
-LPM_WIDTHS=1
-DEVICE_FAMILY="Cyclone II"
-data
-data
-sel
-result
