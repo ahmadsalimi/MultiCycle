@@ -4,7 +4,7 @@
 -- MODULE: LPM_SHIFTREG 
 
 -- ============================================================
--- File Name: IR.vhd
+-- File Name: InstructionReg.vhd
 -- Megafunction Name(s):
 -- 			LPM_SHIFTREG
 --
@@ -39,7 +39,7 @@ USE ieee.std_logic_1164.all;
 LIBRARY lpm;
 USE lpm.all;
 
-ENTITY IR IS
+ENTITY InstructionReg IS
 	PORT
 	(
 		clock		: IN STD_LOGIC ;
@@ -47,10 +47,10 @@ ENTITY IR IS
 		load		: IN STD_LOGIC ;
 		q		: OUT STD_LOGIC_VECTOR (19 DOWNTO 0)
 	);
-END IR;
+END InstructionReg;
 
 
-ARCHITECTURE SYN OF ir IS
+ARCHITECTURE SYN OF instructionreg IS
 
 	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (19 DOWNTO 0);
 
@@ -123,9 +123,9 @@ END SYN;
 -- Retrieval info: CONNECT: @data 0 0 20 0 data 0 0 20 0
 -- Retrieval info: CONNECT: @load 0 0 0 0 load 0 0 0 0
 -- Retrieval info: CONNECT: q 0 0 20 0 @q 0 0 20 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL IR.vhd TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL IR.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL IR.cmp TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL IR.bsf TRUE FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL IR_inst.vhd FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL InstructionReg.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL InstructionReg.inc FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL InstructionReg.cmp TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL InstructionReg.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL InstructionReg_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

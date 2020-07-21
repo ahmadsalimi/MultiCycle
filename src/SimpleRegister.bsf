@@ -20,8 +20,8 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 64 64 216 160)
-	(text "PC" (rect 5 0 20 14)(font "Arial" (font_size 8)))
+	(rect 64 64 208 160)
+	(text "SimpleRegister" (rect 5 0 88 14)(font "Arial" (font_size 8)))
 	(text "inst" (rect 8 80 25 92)(font "Arial" ))
 	(port
 		(pt 0 32)
@@ -33,25 +33,18 @@ applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "PCWrite" (rect 0 0 44 14)(font "Arial" (font_size 8)))
-		(text "PCWrite" (rect 21 43 65 57)(font "Arial" (font_size 8)))
+		(text "clock" (rect 0 0 29 14)(font "Arial" (font_size 8)))
+		(text "clock" (rect 21 43 50 57)(font "Arial" (font_size 8)))
 		(line (pt 0 48)(pt 16 48))
 	)
 	(port
-		(pt 0 64)
-		(input)
-		(text "clock" (rect 0 0 29 14)(font "Arial" (font_size 8)))
-		(text "clock" (rect 21 59 50 73)(font "Arial" (font_size 8)))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 152 32)
+		(pt 144 32)
 		(output)
-		(text "out[31..0]" (rect -16 0 37 14)(font "Arial" (font_size 8)))
-		(text "out[31..0]" (rect 86 27 139 41)(font "Arial" (font_size 8)))
-		(line (pt 152 32)(pt 136 32)(line_width 3))
+		(text "q[31..0]" (rect -16 0 26 14)(font "Arial" (font_size 8)))
+		(text "q[31..0]" (rect 81 27 123 41)(font "Arial" (font_size 8)))
+		(line (pt 144 32)(pt 128 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 136 80))
+		(rectangle (rect 16 16 128 80))
 	)
 )

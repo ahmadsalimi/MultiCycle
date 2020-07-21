@@ -53,7 +53,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 760 72 936 88)
+	(rect 672 88 848 104)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "IRWrite" (rect 90 0 127 12)(font "Arial" ))
 	(pt 0 8)
@@ -85,7 +85,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 760 120 936 136)
+	(rect 672 112 848 128)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "PCWrite" (rect 90 0 131 12)(font "Arial" ))
 	(pt 0 8)
@@ -117,7 +117,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 760 144 936 160)
+	(rect 672 136 848 152)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "ALUSrcA" (rect 90 0 136 12)(font "Arial" ))
 	(pt 0 8)
@@ -133,7 +133,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 760 168 936 184)
+	(rect 672 160 848 176)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "ALUSrcB" (rect 90 0 134 12)(font "Arial" ))
 	(pt 0 8)
@@ -710,7 +710,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 392 -16 456 64)
+	(rect 480 8 544 88)
 	(text "OR4" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst8" (rect 3 69 26 81)(font "Arial" ))
 	(port
@@ -791,43 +791,6 @@ applicable agreement for further details.
 	(pt 896 288)
 	(pt 904 288)
 	(bus)
-)
-(connector
-	(text "IF" (rect 552 104 562 116)(font "Arial" ))
-	(pt 688 120)
-	(pt 544 120)
-)
-(connector
-	(pt 760 80)
-	(pt 688 80)
-)
-(connector
-	(pt 688 128)
-	(pt 760 128)
-)
-(connector
-	(pt 688 80)
-	(pt 688 120)
-)
-(connector
-	(pt 688 120)
-	(pt 688 128)
-)
-(connector
-	(pt 688 176)
-	(pt 760 176)
-)
-(connector
-	(pt 760 152)
-	(pt 688 152)
-)
-(connector
-	(pt 688 128)
-	(pt 688 152)
-)
-(connector
-	(pt 688 152)
-	(pt 688 176)
 )
 (connector
 	(pt 448 120)
@@ -1001,81 +964,109 @@ applicable agreement for further details.
 	(pt 456 424)
 )
 (connector
-	(text "IF" (rect 376 -16 386 -4)(font "Arial" ))
-	(pt 392 0)
-	(pt 368 0)
-)
-(connector
-	(text "ID" (rect 376 0 387 12)(font "Arial" ))
-	(pt 392 16)
-	(pt 368 16)
-)
-(connector
-	(text "EXE" (rect 371 16 391 28)(font "Arial" ))
-	(pt 392 32)
-	(pt 368 32)
-)
-(connector
-	(text "WB" (rect 376 32 393 44)(font "Arial" ))
-	(pt 392 48)
-	(pt 368 48)
-)
-(connector
 	(pt 512 280)
 	(pt 600 280)
 )
 (connector
 	(pt 512 376)
 	(pt 600 376)
-)
-(connector
-	(pt 600 24)
-	(pt 600 280)
 )
 (connector
 	(pt 512 280)
 	(pt 512 272)
 )
 (connector
-	(pt 512 376)
 	(pt 512 368)
+	(pt 512 376)
 )
 (connector
-	(pt 600 488)
-	(pt 512 488)
-)
-(connector
-	(pt 512 464)
-	(pt 512 488)
+	(pt 512 376)
+	(pt 512 384)
 )
 (connector
 	(pt 600 280)
 	(pt 600 376)
 )
 (connector
-	(pt 600 376)
-	(pt 600 488)
+	(pt 512 176)
+	(pt 512 184)
 )
 (connector
-	(pt 512 24)
-	(pt 512 96)
+	(pt 512 184)
+	(pt 600 184)
 )
 (connector
-	(text "stateless" (rect 466 8 510 20)(font "Arial" ))
+	(pt 632 168)
+	(pt 672 168)
+)
+(connector
+	(pt 632 96)
+	(pt 672 96)
+)
+(connector
+	(pt 632 144)
+	(pt 672 144)
+)
+(connector
+	(text "IF" (rect 552 104 562 116)(font "Arial" ))
+	(pt 544 120)
+	(pt 632 120)
+)
+(connector
+	(pt 632 120)
+	(pt 672 120)
+)
+(connector
+	(pt 632 96)
+	(pt 632 120)
+)
+(connector
+	(pt 632 120)
+	(pt 632 144)
+)
+(connector
+	(pt 632 144)
+	(pt 632 168)
+)
+(connector
+	(text "stateless" (rect 554 32 598 44)(font "Arial" ))
+	(pt 600 48)
+	(pt 544 48)
+)
+(connector
+	(text "IF" (rect 464 8 474 20)(font "Arial" ))
 	(pt 456 24)
-	(pt 512 24)
+	(pt 480 24)
 )
 (connector
-	(pt 512 24)
-	(pt 600 24)
+	(text "EXE" (rect 459 40 479 52)(font "Arial" ))
+	(pt 456 56)
+	(pt 480 56)
 )
-(junction (pt 688 120))
-(junction (pt 688 128))
-(junction (pt 688 152))
+(connector
+	(text "WB" (rect 464 56 481 68)(font "Arial" ))
+	(pt 456 72)
+	(pt 480 72)
+)
+(connector
+	(text "ID" (rect 464 24 475 36)(font "Arial" ))
+	(pt 456 40)
+	(pt 480 40)
+)
+(connector
+	(pt 600 48)
+	(pt 600 184)
+)
+(connector
+	(pt 600 184)
+	(pt 600 280)
+)
 (junction (pt 584 408))
 (junction (pt 456 424))
 (junction (pt 456 328))
 (junction (pt 456 232))
 (junction (pt 600 280))
-(junction (pt 512 24))
-(junction (pt 600 376))
+(junction (pt 512 376))
+(junction (pt 600 184))
+(junction (pt 632 120))
+(junction (pt 632 144))
