@@ -19,14 +19,46 @@ This is the Highest Level Abstraction of our design. We have several components 
 #### Datapath modules:
 - **PC**: A 32-bit register that stores current Program Counter.
 - **Memory**: A ROM with 20-bit words for storing instructions.
-- **IR**: A 20-bit register that stores current executing instruction and decodes each part of instruction (`opcode, cin, in1, in2, out`).
-- **Control**: A Finite State Machine that adjusts control signals, such as `IRWrite`, `PCWrite`, `RegWrite` `ALUSrcA`, `ALUSrcB`, `ALUOp`, and `Li` according to `Opcode` and previous state. The FSM diagram is as shown below.
+- **IR**: A 20-bit register that stores currently executing instruction and decodes each part of instruction (`opcode`, `cin`, `in1`, `in2`, `out`).
+- **Control**: A Finite State Machine that adjusts control signals, such as `IRWrite`, `PCWrite`, `RegWrite` `ALUSrcA`, `ALUSrcB`, `ALUOp`, and `Li` according to `Opcode` and previous state. Instruction Execution Stages according to instruction type is as shown below:
 
-![Finite State Machine](images/Control_FSM.png)
+    |  Cycle |   1   |   2   |  3  |  4 |
+    |:------:|:-----:|:-----:|:---:|:--:|
+    | R-type | IF-PC | ID-RF | ALU | WB |
+    |   Li   | IF-PC |   ID  |  WB |    |
+    |  No-Op | IF-PC |   ID  |     |    |
 
-The control unit was designed by one-hot method to convert above FSM to the below circuit.
+    So, the FSM diagram is as shown below.
 
-![Control](images/Control.jpg)
+    ![Finite State Machine](images/Control_FSM.png)
+
+    - Control signals of `R-type` instructions:
+
+        | Cycle | IRWrite | PCWrite | RegWrite | ALUSrcA | ALUSrcB |     ALUOp    | Li |
+        |:-----:|:-------:|:-------:|:--------:|:-------:|:-------:|:------------:|:--:|
+        | IF-PC |    1    |    1    |     0    |    1    |    1    |   000 (add)  |  X |
+        | ID-RF |    0    |    0    |     0    |    X    |    X    |       X      |  X |
+        |  ALU  |    0    |    0    |     0    |    0    |    0    | opcode[2..0] |  X |
+        |   WB  |    0    |    0    |     1    |    X    |    X    |       X      |  0 |
+
+    - Control signales of `Li` instruction:
+
+        | Cycle | IRWrite | PCWrite | RegWrite | ALUSrcA | ALUSrcB |   ALUOp   | Li |
+        |:-----:|:-------:|:-------:|:--------:|:-------:|:-------:|:---------:|:--:|
+        | IF-PC |    1    |    1    |     0    |    1    |    1    | 000 (add) |  X |
+        | ID-RF |    0    |    0    |     0    |    X    |    X    |     X     |  X |
+        |   WB  |    0    |    0    |     1    |    X    |    X    |     X     |  1 |
+
+    - Control signals of `No-Op` instruction:
+
+        | Cycle | IRWrite | PCWrite | RegWrite | ALUSrcA | ALUSrcB |   ALUOp   | Li |
+        |:-----:|:-------:|:-------:|:--------:|:-------:|:-------:|:---------:|:--:|
+        | IF-PC |    1    |    1    |     0    |    1    |    1    | 000 (add) |  X |
+        | ID-RF |    0    |    0    |     0    |    X    |    X    |     X     |  X |
+
+    So, the control unit was designed by one-hot method to convert above FSM to the below logical circuit.
+
+    ![Control](images/Control.jpg)
 
 - **RF**: A Register File that has 32 Registers with width of 32 bits.
 - **Zero Extend**: extends 5-bit input to a 32-bit bus.
@@ -50,13 +82,6 @@ The control unit was designed by one-hot method to convert above FSM to the belo
      
 
 ![ALU_Cal](images/ALU_Cal.png)
-
-#### Instruction Execution Stages:
-|  Cycle |   1   |   2   |  3  |  4 |
-|:------:|:-----:|:-----:|:---:|:--:|
-| R-type | IF-PC | ID-RF | ALU | WB |
-|   Li   | IF-PC |   ID  |  WB |    |
-|  No-Op | IF-PC |   ID  |     |    |
 
 - Instruction Fetch, PC assignment:
     - `IR <- Mem[PC]`
