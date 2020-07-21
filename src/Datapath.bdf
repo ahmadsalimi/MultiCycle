@@ -378,7 +378,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 776 376 808 408)
+	(rect 808 376 840 408)
 	(text "GND" (rect 8 16 29 26)(font "Arial" (font_size 6)))
 	(text "inst5" (rect 3 21 26 33)(font "Arial" )(invisible))
 	(port
@@ -1042,10 +1042,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 792 368)
-	(pt 792 376)
-)
-(connector
 	(pt 1184 288)
 	(pt 1176 288)
 	(bus)
@@ -1065,15 +1061,6 @@ applicable agreement for further details.
 	(pt 792 352)
 	(pt 880 352)
 	(bus)
-)
-(connector
-	(pt 792 368)
-	(pt 880 368)
-)
-(connector
-	(text "clock" (rect 840 368 865 380)(font "Arial" ))
-	(pt 832 384)
-	(pt 880 384)
 )
 (connector
 	(text "in1[4..0]" (rect 800 272 840 284)(font "Arial" ))
@@ -1387,6 +1374,19 @@ applicable agreement for further details.
 	(pt 544 256)
 	(pt 576 256)
 	(bus)
+)
+(connector
+	(pt 824 368)
+	(pt 824 376)
+)
+(connector
+	(pt 880 368)
+	(pt 824 368)
+)
+(connector
+	(text "clock" (rect 856 368 881 380)(font "Arial" ))
+	(pt 880 384)
+	(pt 848 384)
 )
 (junction (pt 1960 400))
 (junction (pt 544 256))
