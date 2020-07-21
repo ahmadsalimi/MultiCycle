@@ -119,7 +119,7 @@ This is the Highest Level Abstraction of our design. We have several components 
     
     The program below contains all supported instructions of our processor.
 
-    ```mips
+    ```assembly
     li      $0, 10
     li      $1, 4
     add     $2, $1, $0, 1   # $2 = $1 + $0 + 1 = 15 (all alu signals = 0)
