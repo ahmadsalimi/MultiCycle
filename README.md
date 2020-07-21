@@ -123,7 +123,7 @@ This is the Highest Level Abstraction of our design. We have several components 
     li      $0, 10
     li      $1, 4
     add     $2, $1, $0, 1   # $2 = $1 + $0 + 1 = 15 (all alu signals = 0)
-    sub     $3, $2, $1		# $3 = $2 - $1 = 10 (all alu signals = 0)
+    sub     $3, $2, $1		# $3 = $2 - $1 = 11 (all alu signals = 0)
     slt     $4, $3, $2      # $4 = $3 < $2 = 1 (all alu signals = 0)
     noop
     sll     $5, $4, 3       # $5 = $4 << 3 = 8 (all alu signals = 0)
@@ -179,7 +179,44 @@ This is the Highest Level Abstraction of our design. We have several components 
     END;
     ```
 
-    Then save result file as `src/Memory/InitialMemory.mif`.
+    Then save result file as `src/Memory/InitialMemory.mif`. (mif file of above program is already in `src/Memory/InitialMemory.mif`, so, if you just want to run above example, you don't need to do steps 1 and 2.)
 
-3. Run `src/Waveform.vwf` by **Quartus Cyclone II**. The result will be as shown below:
+3. Run `src/Waveform.vwf` by **Quartus Cyclone II**. The result will be as shown below: (Stages are shown at the top of each clock)
+    1. Instructions 0 to 2:
+        ``` assembly
+        li      $0, 10
+        li      $1, 4
+        add     $2, $1, $0, 1   # $2 = $1 + $0 + 1 = 15 (all alu signals = 0)
+        ```
 
+        ![](images/waveform1.jpg)
+    
+    1. Instructions 3 to 5:
+        ``` assembly
+        sub     $3, $2, $1		# $3 = $2 - $1 = 11 (all alu signals = 0)
+        slt     $4, $3, $2      # $4 = $3 < $2 = 1 (all alu signals = 0)
+        noop
+        ```
+
+        ![](images/waveform2.jpg)
+        
+    1. Instructions 6 to 8:
+        ``` assembly
+        sll     $5, $4, 3       # $5 = $4 << 3 = 8 (all alu signals = 0)
+        srl     $6, $5, 2       # $6 = $5 >> 2 = 2 (all alu signals = 0)
+        nand    $7, $5, $6      # $7 = $5 nand $6 = -1 (sgn = 1)
+        ```
+
+        ![](images/waveform3.jpg)
+
+    1. Instructions 9 to 12:
+        ``` assembly
+        min     $8, $6, $7      # $8 = min($6, $7) = -1 (sgn = 1)
+        sll     $9, $4, 30      # $9 = 1 << 30 = 2 ^ 30 (all alu signals = 0)
+        add     $10, $9, $9     # $10 = $9 + $9 = - 2 ^ 31 (overflow, eq, sgn = 1)
+        sub     $11, $9, $9     # $11 = 0 (eq, zero = 1)
+        ```
+
+        ![](images/waveform4.jpg)
+
+So, we can see that all instructions are rau seccessfully.

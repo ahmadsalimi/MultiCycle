@@ -1,7 +1,7 @@
 li      $0, 10
 li      $1, 4
 add     $2, $1, $0, 1   # $2 = $1 + $0 = 15 (all alu signals = 0)
-sub     $3, $2, $1		# $3 = $2 - $1 = 10 (all alu signals = 0)
+sub     $3, $2, $1		# $3 = $2 - $1 = 11 (all alu signals = 0)
 slt     $4, $3, $2      # $4 = $3 < $2 = 1 (all alu signals = 0)
 noop
 sll     $5, $4, 3       # $5 = $4 << 3 = 8 (all alu signals = 0)

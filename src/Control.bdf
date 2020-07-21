@@ -52,8 +52,24 @@ applicable agreement for further details.
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
 )
 (pin
+	(input)
+	(rect 128 240 296 256)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "cin" (rect 5 0 20 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
 	(output)
-	(rect 672 88 848 104)
+	(rect 672 40 848 56)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "IRWrite" (rect 90 0 127 12)(font "Arial" ))
 	(pt 0 8)
@@ -85,7 +101,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 672 112 848 128)
+	(rect 672 64 848 80)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "PCWrite" (rect 90 0 131 12)(font "Arial" ))
 	(pt 0 8)
@@ -117,7 +133,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 672 136 848 152)
+	(rect 672 88 848 104)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "ALUSrcA" (rect 90 0 136 12)(font "Arial" ))
 	(pt 0 8)
@@ -133,7 +149,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 672 160 848 176)
+	(rect 672 112 848 128)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "ALUSrcB" (rect 90 0 134 12)(font "Arial" ))
 	(pt 0 8)
@@ -152,6 +168,22 @@ applicable agreement for further details.
 	(rect 760 408 936 424)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "Li" (rect 90 0 98 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 760 176 936 192)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "ALUCin" (rect 90 0 127 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -758,6 +790,38 @@ applicable agreement for further details.
 		(arc (pt 25 51)(pt 49 40)(rect -6 -11 57 52))
 	)
 )
+(symbol
+	(rect 696 160 760 208)
+	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
+	(text "inst2" (rect 3 37 26 49)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 14 32))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(line (pt 42 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 14 12)(pt 30 12))
+		(line (pt 14 37)(pt 31 37))
+		(line (pt 14 12)(pt 14 37))
+		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
+	)
+)
 (connector
 	(pt 824 320)
 	(pt 824 344)
@@ -996,39 +1060,6 @@ applicable agreement for further details.
 	(pt 600 184)
 )
 (connector
-	(pt 632 168)
-	(pt 672 168)
-)
-(connector
-	(pt 632 96)
-	(pt 672 96)
-)
-(connector
-	(pt 632 144)
-	(pt 672 144)
-)
-(connector
-	(text "IF" (rect 552 104 562 116)(font "Arial" ))
-	(pt 544 120)
-	(pt 632 120)
-)
-(connector
-	(pt 632 120)
-	(pt 672 120)
-)
-(connector
-	(pt 632 96)
-	(pt 632 120)
-)
-(connector
-	(pt 632 120)
-	(pt 632 144)
-)
-(connector
-	(pt 632 144)
-	(pt 632 168)
-)
-(connector
 	(text "stateless" (rect 554 32 598 44)(font "Arial" ))
 	(pt 600 48)
 	(pt 544 48)
@@ -1061,6 +1092,49 @@ applicable agreement for further details.
 	(pt 600 184)
 	(pt 600 280)
 )
+(connector
+	(pt 632 72)
+	(pt 672 72)
+)
+(connector
+	(pt 632 48)
+	(pt 672 48)
+)
+(connector
+	(pt 632 96)
+	(pt 672 96)
+)
+(connector
+	(pt 632 48)
+	(pt 632 72)
+)
+(connector
+	(pt 632 72)
+	(pt 632 96)
+)
+(connector
+	(pt 632 96)
+	(pt 632 120)
+)
+(connector
+	(text "IF" (rect 552 104 562 116)(font "Arial" ))
+	(pt 544 120)
+	(pt 632 120)
+)
+(connector
+	(pt 632 120)
+	(pt 672 120)
+)
+(connector
+	(text "EXE" (rect 664 160 684 172)(font "Arial" ))
+	(pt 696 176)
+	(pt 656 176)
+)
+(connector
+	(text "cin" (rect 664 176 678 188)(font "Arial" ))
+	(pt 696 192)
+	(pt 656 192)
+)
 (junction (pt 584 408))
 (junction (pt 456 424))
 (junction (pt 456 328))
@@ -1068,5 +1142,6 @@ applicable agreement for further details.
 (junction (pt 600 280))
 (junction (pt 512 376))
 (junction (pt 600 184))
+(junction (pt 632 72))
+(junction (pt 632 96))
 (junction (pt 632 120))
-(junction (pt 632 144))
