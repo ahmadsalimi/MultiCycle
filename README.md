@@ -30,7 +30,7 @@ The control unit was designed by one-hot method to convert above FSM to the belo
 
 - **RF**: A Register File that has 32 Registers with width of 32 bits.
 - **Zero Extend**: extends 5-bit input to a 32-bit bus.
-- **ALU**: *Hamila*
+- **ALU**: Calculates the needed outputs, based on `op` bits. The handled functions are : `add`,`sub`,`srl`,`sll`,`nand`,`min` and `slt`.
 
 #### Instruction Execution Stages:
 |  Cycle |   1   |   2   |  3  |  4 |
@@ -51,8 +51,27 @@ The control unit was designed by one-hot method to convert above FSM to the belo
 
 ![ID-RF](images/ID-RF.jpg)
 
-- ALU execution:
+- ALU execution - part1: 
+    - Calculate possible outputs, not considering the `opcode` :
+        - `add` -> Full Adder
+        - `sub` -> Full Subtractor
+        - `srl`,`sll` -> Logical shift unit (shift bits in `shiftamt`). `srl` has opcode of `010` and `sll` has opcode of `011`, so we use the `op[0]` bit (with a not gate) to determine whether it's left shift or right shift.
+        - `nand` -> A bit by bit nand gate for 32-bit inputs.
+        - `min` -> Returns the smaller input using a compare unit and a multiplexer.
+        - `slt` -> Returns 1 if `in1 < in2` and 0 if `in1 >= in2`.
+        
+![ALU_Cal](images/ALU_Cal.png)
 
+- ALU execution - part2:
+    - Choose the right ouput based on `opcode` :
+        - `overflow` -> Is set to 1 only if the instruction is `add` and the overflow happens.
+        - `eq` -> Is set to 1 when the two inputs of ALU are equal.
+        - `zero` -> Is set to 1 when the final output of the ALU is zero.
+        - `sgn` -> Is set to 1 when the final ouptut is smaller than zero.
+        - `output` -> The final 32-bit output will be chosen based on the opcode using a multiplexer.
+
+![ALU_Choose](images/ALU_Choose.png)
+     
 ALU executes the instruction. [Control unit](#control-unit) specifies type of operation.
 
 ![EXE](images/EXE.jpg)
