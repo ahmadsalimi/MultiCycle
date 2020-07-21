@@ -103,6 +103,7 @@ This is the Highest Level Abstraction of our design. We have several components 
     ![ID-RF](images/ID-RF.jpg)
 
 - ALU Execution
+
     Two Multiplexers choose inputs of ALU, and the select signals are given by **Control Unit**. The 1<sup>st</sup> input can be `A` register or `PC`, and the 2<sup>nd</sup> input can be `B` register of 1. Then, ALU executes the instruction. **Control unit** specifies type of operation with ALUOp.
 
     ![EXE](images/EXE.jpg)
