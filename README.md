@@ -72,11 +72,11 @@ This is the Highest Level Abstraction of our design. We have several components 
 
 - **RF**: A Register File that has 32 Registers with a width of 32 bits.
 - **Zero Extend**: extends 5-bit input to a 32-bit bus.
-- **ALU**: Calculates the needed outputs, based on `op` bits. The handled functions are : `add`,`sub`,`srl`,`sll`,`nand`,`min` and `slt`.
+- **ALU**: Calculates the needed outputs, based on `op` bits. The handled functions are : `add`, `sub`, `srl`, `sll`, `nand`, `min` and `slt`.
     1. Calculate possible outputs, not considering the `opcode` :
         - `add` -> Full Adder
         - `sub` -> Full Subtractor
-        - `srl`,`sll` -> Logical shift unit (shift bits in `shiftamt`). `srl` has opcode of `010` and `sll` has opcode of `011`, so we use the `op[0]` bit (with a not gate) to determine whether it's left shift or right shift.
+        - `srl`, `sll` -> Logical shift unit (shift bits in `shiftamt`). `srl` has opcode of `010` and `sll` has opcode of `011`, so we use the `op[0]` bit (with a not gate) to determine whether it's left shift or right shift.
         - `nand` -> A bit by bit nand gate for 32-bit inputs.
         - `min` -> Returns the smaller input using a compare unit and a multiplexer.
         - `slt` -> Returns 1 if `in1 < in2` and 0 if `in1 >= in2`.
