@@ -142,7 +142,7 @@ This is the Highest Level Abstraction of our design. We have several components 
 
 2. Convert the assembly to a `.mif` file.
 
-    We have implemented an assembler program that translates given `MIPS` assembly code to a `.mif` format file. The assembler is written by `c#` language. you can download the **portable** executable form of assembler from [here](https://github.com/ahmadsalimi/MultiCycle/releases). after downloading it, you can assemble your `MIPS` code by below command in command-line of your os.
+    We have implemented an assembler program that translates given `MIPS` assembly code to a `.mif` format file. The assembler is written by `c#` language. you can download the **portable** executable form of assembler from [here](https://github.com/ahmadsalimi/MultiCycle/releases/tag/1.0.0). after downloading it, you can assemble your `MIPS` code by below command in command-line of your os.
 
     - Windows **CMD** or **Powershell**:
     ```bash
