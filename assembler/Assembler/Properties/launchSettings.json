@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Assembler": {
-      "commandName": "Project",
-      "commandLineArgs": "\"E:\\University\\Computer Architecture\\Project\\MultiCycle\\assembler\\Assembler\\Assembler\\bin\\Debug\\Sample.asm\""
-    }
-  }
-}
